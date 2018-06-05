@@ -6,6 +6,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
 
+import com.example.quarterhour.ui.jokes.fragment.JokeFragment;
 import com.example.quarterhour.ui.recommend.fragment.RecommendFragment;
 import com.example.quarterhour.util.BottomBar;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 .setIconWidth(30)
                 .setIconHeight(30)
                 .addItem(RecommendFragment.class, "推荐",R.drawable.raw_1500083878,R.drawable.raw_1500085367)
-                .addItem(RecommendFragment.class, "段子",R.drawable.raw_1500085327,R.drawable.raw_1500085899)
+                .addItem(JokeFragment.class, "段子",R.drawable.raw_1500085327,R.drawable.raw_1500085899)
                 .addItem(RecommendFragment.class, "视频",R.drawable.raw_1500083686,R.drawable.raw_1500086067)
                 .build();
     }
