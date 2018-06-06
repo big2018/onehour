@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.example.quarterhour.R;
 import com.example.quarterhour.bean.AdBean;
 import com.example.quarterhour.bean.JokesBean;
+
 import com.example.quarterhour.component.DaggerHttpComponent;
 import com.example.quarterhour.ui.base.BaseFragment;
 import com.example.quarterhour.ui.recommend.adapter.Rv_jokeAdapter;

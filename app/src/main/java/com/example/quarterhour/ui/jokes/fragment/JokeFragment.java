@@ -12,8 +12,8 @@ import com.example.quarterhour.module.HttpModule;
 import com.example.quarterhour.ui.base.BaseFragment;
 import com.example.quarterhour.ui.jokes.adapter.DzAdapter;
 import com.example.quarterhour.ui.jokes.contract.JokesContract;
-
 import com.example.quarterhour.ui.jokes.presenter.JokesPresenter;
+
 
 import java.util.List;
 
