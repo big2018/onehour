@@ -3,6 +3,7 @@ package com.example.quarterhour.ui.jokes.adapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 
 import com.example.quarterhour.R;
 import com.example.quarterhour.bean.JokesBean;
+import com.example.quarterhour.ui.details.DetailsActivity;
+import com.example.quarterhour.util.AddImg;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
@@ -28,7 +31,7 @@ public class DzAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private LayoutInflater inflater;
     private View view;
     private List<ImageView> images;
-    private ImageView imageView = null;
+//    private ImageView imageView = null;
     private Handler handler = new Handler();
 
     public DzAdapter(Context context, List<JokesBean.DataBean> list) {
@@ -54,6 +57,15 @@ public class DzAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         JokesBean.DataBean dataBean = list.get(position);
 
         viewHolder.simple_user.setImageURI(dataBean.getUser().getIcon());
+        viewHolder.simple_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailsActivity.class);
+//                intent.putExtra("uid")
+                context.startActivity(intent);
+            }
+        });
+
         viewHolder.tv_username.setTextColor(Color.RED);
         viewHolder.tv_username.setText(dataBean.getUser().getNickname()+"");
         viewHolder.tv_createtime.setText(dataBean.getCreateTime());
@@ -64,14 +76,18 @@ public class DzAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             public void onClick(View v) {
 //                Toast.makeText(context,"点击了编辑图片",Toast.LENGTH_SHORT).show();
                 if (flag[0]){
-
+                    if (images != null){
+                        AddImg.addImg(context,false,viewHolder.ll,R.drawable.heart,-100f,images,handler);
+                        AddImg.addImg(context,false,viewHolder.ll,R.drawable.share,-200f,images,handler);
+                        AddImg.addImg(context,false,viewHolder.ll,R.drawable.comment,-300f,images,handler);
+                    }
                     viewHolder.image_bj.setImageResource(R.drawable.sub);
                     ObjectAnimator rotation = ObjectAnimator.ofFloat(viewHolder.image_bj, "rotation", 180f, 0f);
                     rotation.setDuration(500);
                     rotation.start();
-                    addImg(flag[0],viewHolder,R.drawable.heart,-100f);
-                    addImg(flag[0],viewHolder,R.drawable.share,-200f);
-                    addImg(flag[0],viewHolder,R.drawable.comment,-300f);
+                    AddImg.addImg(context,true,viewHolder.ll,R.drawable.heart,-100f,images,handler);
+                    AddImg.addImg(context,true,viewHolder.ll,R.drawable.share,-200f,images,handler);
+                    AddImg.addImg(context,true,viewHolder.ll,R.drawable.comment,-300f,images,handler);
                     flag[0] = !flag[0];
                 }else {
 
@@ -79,9 +95,9 @@ public class DzAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     ObjectAnimator rotation = ObjectAnimator.ofFloat(viewHolder.image_bj, "rotation", 180f, 360f);
                     rotation.setDuration(500);
                     rotation.start();
-                    addImg(flag[0],viewHolder,R.drawable.heart,-100f);
-                    addImg(flag[0],viewHolder,R.drawable.share,-200f);
-                    addImg(flag[0],viewHolder,R.drawable.comment,-300f);
+                    AddImg.addImg(context,false,viewHolder.ll,R.drawable.heart,-100f,images,handler);
+                    AddImg.addImg(context,false,viewHolder.ll,R.drawable.share,-200f,images,handler);
+                    AddImg.addImg(context,false,viewHolder.ll,R.drawable.comment,-300f,images,handler);
                     flag[0] = !flag[0];
 
                 }
@@ -116,51 +132,5 @@ public class DzAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    public void addImg(boolean flag, final ViewHolder viewHolder, int uri, float address){
-
-        if (flag) {
-            imageView = new ImageView(context);
-            images.add(imageView);
-            imageView.setImageResource(uri);
-
-            RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(75, 75);
-            lp.addRule(RelativeLayout.ALIGN_TOP, R.id.image_bj);
-            lp.addRule(RelativeLayout.ALIGN_RIGHT, R.id.image_bj);
-
-            viewHolder.ll.addView(imageView, lp);
-
-            ObjectAnimator rotation = ObjectAnimator.ofFloat(imageView, "rotation", 180f, 0f);
-            ObjectAnimator alpha = ObjectAnimator.ofFloat(imageView, "alpha", 0f, 1.0f);
-            float translationX = imageView.getTranslationX();
-            ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(imageView, "translationX", translationX, address);
-            AnimatorSet set = new AnimatorSet();
-            //添加动画
-            set.play(objectAnimator).with(alpha).with(rotation);
-            set.setDuration(500);
-            set.start();
-        }else {
-            if (images != null) {
-                for (int i = 0 ; i < images.size() ; i++ ) {
-                    ObjectAnimator rotation = ObjectAnimator.ofFloat(images.get(i), "rotation", 0f, 180f);
-                    ObjectAnimator alpha = ObjectAnimator.ofFloat(images.get(i), "alpha", 1.0f, 0f);
-                    float translationX = images.get(i).getTranslationX();
-                    ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(images.get(i), "translationX", translationX, -address);
-                    AnimatorSet set = new AnimatorSet();
-                    //添加动画
-                    set.play(objectAnimator).with(alpha).with(rotation);
-                    set.setDuration(500);
-                    set.start();
-                    final int finalI = i;
-                    System.out.println(handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            viewHolder.ll.removeView(images.get(finalI));
-                        }
-                    },500));
-
-                }
-            }
-        }
-    }
 
 }
