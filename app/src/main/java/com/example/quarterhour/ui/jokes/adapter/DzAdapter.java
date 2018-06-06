@@ -76,11 +76,6 @@ public class DzAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             public void onClick(View v) {
 //                Toast.makeText(context,"点击了编辑图片",Toast.LENGTH_SHORT).show();
                 if (flag[0]){
-                    if (images != null){
-                        AddImg.addImg(context,false,viewHolder.ll,R.drawable.heart,-100f,images,handler);
-                        AddImg.addImg(context,false,viewHolder.ll,R.drawable.share,-200f,images,handler);
-                        AddImg.addImg(context,false,viewHolder.ll,R.drawable.comment,-300f,images,handler);
-                    }
                     viewHolder.image_bj.setImageResource(R.drawable.sub);
                     ObjectAnimator rotation = ObjectAnimator.ofFloat(viewHolder.image_bj, "rotation", 180f, 0f);
                     rotation.setDuration(500);

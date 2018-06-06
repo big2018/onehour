@@ -20,7 +20,7 @@ public class AddImg {
             images.add(imageView);
             imageView.setImageResource(uri);
 
-            RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(75, 75);
+            RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(40, 40);
             lp.addRule(RelativeLayout.ALIGN_TOP, R.id.image_bj);
             lp.addRule(RelativeLayout.ALIGN_RIGHT, R.id.image_bj);
 

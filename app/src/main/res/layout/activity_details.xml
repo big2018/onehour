@@ -1,11 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.details.DetailsActivity">
+    tools:context=".ui.details.DetailsActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
 
 
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="46dp"
+            android:layout_marginStart="46dp"
+            android:text="作品（3）"
+            android:textColor="#039BE5" />
 
-</android.support.constraint.ConstraintLayout>
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/simple_backgroud"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <ImageView
+            android:id="@+id/img_gz"
+            android:layout_width="210dp"
+            android:layout_height="27dp"
+            android:layout_alignBottom="@id/simple_tx"
+            android:layout_toStartOf="@id/simple_dz"
+            android:src="@drawable/gz1"
+            android:layout_toLeftOf="@id/simple_dz"
+            android:layout_marginRight="30dp"/>
+
+        <TextView
+            android:layout_width="210dp"
+            android:layout_height="27dp"
+
+            android:layout_alignTop="@id/simple_dz"
+            android:text="186545656粉丝      |       17关注"
+            android:layout_alignLeft="@id/img_gz"
+            android:layout_marginLeft="5dp"/>
+
+        <ImageView
+            android:id="@+id/simple_dz"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="29dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginRight="18dp"
+            android:src="@drawable/dz1" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColor="#fff"/>
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/simple_tx"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp"
+            app:roundAsCircle="true" />
+
+        <ImageView
+            android:id="@+id/img_return"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/fanhui"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/share1"
+            android:layout_toLeftOf="@id/img_message"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/img_message"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/message"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_workinfo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"></android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

@@ -57,7 +57,6 @@ public class GuanZhuFragment extends BaseFragment<RecommendPresenter> implements
     @Override
     public void showJokes(JokesBean jokesBean) {
         List<JokesBean.DataBean> data = jokesBean.getData();
-        Glide.with(getActivity()).load(data.get(0).getUser().getIcon()).into(img_banner);
         Rv_jokeAdapter rv_jokeAdapter = new Rv_jokeAdapter(data, getActivity());
         rv_gz.setAdapter(rv_jokeAdapter);
     }

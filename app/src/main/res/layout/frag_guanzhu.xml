@@ -11,6 +11,7 @@
         <ImageView
             android:id="@+id/img_banner"
             android:layout_width="match_parent"
+            android:src="@drawable/raw_1500002643"
             android:layout_height="180dp" />
 
         <android.support.v7.widget.RecyclerView

@@ -52,7 +52,7 @@ public class Rv_jokeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list == null ? 0 : list.size();
     }
 
     class JokeViewHolder extends RecyclerView.ViewHolder{

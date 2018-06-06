@@ -2,6 +2,9 @@ package com.example.quarterhour.net;
 
 import com.example.quarterhour.bean.AdBean;
 import com.example.quarterhour.bean.JokesBean;
+import com.example.quarterhour.bean.UserInfoBean;
+import com.example.quarterhour.bean.UserVideosBean;
+import com.example.quarterhour.bean.WorkInfoBean;
 
 import io.reactivex.Observable;
 
@@ -28,4 +31,18 @@ public class NetApi {
     public Observable<JokesBean> getJokes(){
         return netApiService.getJokes();
     }
+
+    public Observable<WorkInfoBean> getWorkInfo(String uid,String token){
+        return netApiService.getWorkInfo(uid,token);
+    }
+
+    public Observable<UserInfoBean> getUserInfo(String uid){
+        return netApiService.getUserInfo(uid);
+    }
+
+    public Observable<UserVideosBean> getUserVideos(String uid){
+        return netApiService.getUserVideos(uid);
+    }
+
+
 }
