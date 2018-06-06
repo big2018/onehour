@@ -57,6 +57,7 @@ public class GuanZhuFragment extends BaseFragment<RecommendPresenter> implements
     @Override
     public void showJokes(JokesBean jokesBean) {
         List<JokesBean.DataBean> data = jokesBean.getData();
+        //fsadjfasdlfj
         Rv_jokeAdapter rv_jokeAdapter = new Rv_jokeAdapter(data, getActivity());
         rv_gz.setAdapter(rv_jokeAdapter);
 //jhjhk
