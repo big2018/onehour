@@ -61,5 +61,6 @@ public class GuanZhuFragment extends BaseFragment<RecommendPresenter> implements
         Rv_jokeAdapter rv_jokeAdapter = new Rv_jokeAdapter(data, getActivity());
         //huifngfihguifngju
         rv_gz.setAdapter(rv_jokeAdapter);
+//jhjhk
     }
 }
