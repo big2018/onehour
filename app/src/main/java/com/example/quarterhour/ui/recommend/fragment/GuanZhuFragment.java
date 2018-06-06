@@ -58,6 +58,7 @@ public class GuanZhuFragment extends BaseFragment<RecommendPresenter> implements
     public void showJokes(JokesBean jokesBean) {
         List<JokesBean.DataBean> data = jokesBean.getData();
         //12345678978979
+        //bendi
         //fsadjfasdlfj
         Rv_jokeAdapter rv_jokeAdapter = new Rv_jokeAdapter(data, getActivity());
         rv_gz.setAdapter(rv_jokeAdapter);
