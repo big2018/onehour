@@ -59,5 +59,6 @@ public class GuanZhuFragment extends BaseFragment<RecommendPresenter> implements
         List<JokesBean.DataBean> data = jokesBean.getData();
         Rv_jokeAdapter rv_jokeAdapter = new Rv_jokeAdapter(data, getActivity());
         rv_gz.setAdapter(rv_jokeAdapter);
+//jhjhk
     }
 }
