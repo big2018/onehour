@@ -1,6 +1,7 @@
 package com.example.quarterhour.ui.details;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,9 +12,12 @@ import com.example.quarterhour.bean.WorkInfoBean;
 import com.example.quarterhour.component.DaggerHttpComponent;
 import com.example.quarterhour.module.HttpModule;
 import com.example.quarterhour.ui.base.BaseActivity;
+import com.example.quarterhour.ui.details.adapter.DetailsAdapter;
 import com.example.quarterhour.ui.details.contract.DetailsContract;
 import com.example.quarterhour.ui.details.presenter.DetailsPresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
+
+import java.util.List;
 
 public class DetailsActivity extends BaseActivity<DetailsPresenter> implements DetailsContract.View, View.OnClickListener {
 
@@ -34,6 +38,7 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> implements D
     private TextView mTvUser;
     private ImageView mImgReturn;
     private ImageView mImgMessage;
+    private boolean flag = true ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,7 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> implements D
         img = (ImageView) findViewById(R.id.simple_dz);
         img.setOnClickListener(this);
         mRecyclerWorkinfo = (RecyclerView) findViewById(R.id.recycler_workinfo);
+        mRecyclerWorkinfo.setLayoutManager(new LinearLayoutManager(this));
         mSimpleBackgroud = (SimpleDraweeView) findViewById(R.id.simple_backgroud);
         mSimpleBackgroud.setImageURI(imgurl);
         mImgGz = (ImageView) findViewById(R.id.img_gz);
@@ -78,6 +84,12 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> implements D
         WorkInfoBean.DataBean.UserBean data = workInfoBean.getData().getUser();
         mSimpleTx.setImageURI(data.getIcon());
         mTvUser.setText(data.getNickname());
+
+        List<WorkInfoBean.DataBean.WorksEntitiesBean> list = workInfoBean.getData().getWorksEntities();
+        DetailsAdapter adapter = new DetailsAdapter(DetailsActivity.this,list,data.getIcon(),data.getNickname());
+        mRecyclerWorkinfo.setAdapter(adapter);
+        mTvNum.setText("作品（"+list.size()+"）");
+
     }
 
     @Override
@@ -104,7 +116,13 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> implements D
                 break;
 
             case R.id.img_gz:
-                mImgGz.setImageResource(R.drawable.gz2);
+                if (flag) {
+                    mImgGz.setImageResource(R.drawable.gz2);
+                    flag = !flag;
+                }else {
+                    mImgGz.setImageResource(R.drawable.gz1);
+                    flag = !flag;
+                }
                 break;
 
             case R.id.img_return:
