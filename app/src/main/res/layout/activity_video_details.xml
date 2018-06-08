@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.details.VideoDetailsActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/img_fh"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/raw_1500019926"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageView
+            android:id="@+id/img_xh"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/raw_1499933216"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageView
+            android:id="@+id/img_ty"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/raw_1499933217"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageView
+            android:id="@+id/img_fx"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/raw_1499995160"
+            android:layout_marginLeft="10dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"></View>
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/simple_tx"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            app:roundAsCircle="true"/>
+
+    </LinearLayout>
+
+    <cn.jzvd.JZVideoPlayerStandard
+        android:id="@+id/player"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"></cn.jzvd.JZVideoPlayerStandard>
+
+    <TextView
+        android:id="@+id/tv_js"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:layout_marginLeft="30dp"
+        android:gravity="center_vertical"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:src="@drawable/spdetails"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"></View>
+
+
+</LinearLayout>

@@ -56,10 +56,60 @@
 
     </RelativeLayout>
 
-    <cn.jzvd.JZVideoPlayerStandard
-        android:id="@+id/videoplayer"
+    <RelativeLayout
+        android:id="@+id/relative_sp"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="200dp">
+
+        <cn.jzvd.JZVideoPlayerStandard
+            android:id="@+id/videoplayer"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <ImageView
+            android:id="@+id/xin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xin1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/wjx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wjx2"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_below="@id/xin"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/fx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/share2"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_below="@id/wjx"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/xx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xiaoxi"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_below="@id/fx"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tv_nr"

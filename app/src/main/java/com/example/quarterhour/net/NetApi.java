@@ -1,6 +1,7 @@
 package com.example.quarterhour.net;
 
 import com.example.quarterhour.bean.AdBean;
+import com.example.quarterhour.bean.VideosBean;
 import com.example.quarterhour.bean.JokesBean;
 import com.example.quarterhour.bean.UserInfoBean;
 import com.example.quarterhour.bean.UserVideosBean;
@@ -42,6 +43,14 @@ public class NetApi {
 
     public Observable<UserVideosBean> getUserVideos(String uid){
         return netApiService.getUserVideos(uid);
+    }
+
+    public Observable<VideosBean> getHotVideos(String token){
+        return netApiService.getHotVideos(token);
+    }
+
+    public Observable<VideosBean> getNearVideos(String token){
+        return netApiService.getNearVideos(token);
     }
 
 

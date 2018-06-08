@@ -28,6 +28,8 @@ import java.util.List;
 
 import cn.jzvd.JZVideoPlayerStandard;
 
+import static android.view.View.VISIBLE;
+
 public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context context;
@@ -39,6 +41,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private String username;
 //    private ImageView imageView = null;
     private Handler handler = new Handler();
+
 
     public DetailsAdapter(Context context, List<WorkInfoBean.DataBean.WorksEntitiesBean> list,String imgtx,String username) {
         this.context = context;
@@ -60,6 +63,9 @@ public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         final boolean[] flag = {true};
+        final boolean[] xinbool = {true};
+        final boolean[] wjxbool = {true};
+        final boolean[] spbool = {true};
         final ViewHolder viewHolder = (ViewHolder) holder;
 
         WorkInfoBean.DataBean.WorksEntitiesBean data = list.get(position);
@@ -105,6 +111,53 @@ public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 //        Glide.with(context).load(cover).into(holder.getVideoplayer().thumbImageView);
         Glide.with(context).load("https://www.zhaoapi.cn/images/1516841991537timg.jpg").into(viewHolder.videoplayer.thumbImageView);
 
+        viewHolder.videoplayer.thumbImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (spbool[0]) {
+                    viewHolder.xin.setVisibility(View.VISIBLE);
+                    viewHolder.wjx.setVisibility(View.VISIBLE);
+                    viewHolder.fx.setVisibility(View.VISIBLE);
+                    viewHolder.xx.setVisibility(View.VISIBLE);
+                    spbool[0] = !spbool[0];
+                }else {
+                    viewHolder.xin.setVisibility(View.GONE);
+                    viewHolder.wjx.setVisibility(View.GONE);
+                    viewHolder.fx.setVisibility(View.GONE);
+                    viewHolder.xx.setVisibility(View.GONE);
+                    spbool[0] = !spbool[0];
+                }
+            }
+        });
+
+        viewHolder.xin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (xinbool[0]){
+                    viewHolder.xin.setImageResource(R.drawable.xin2);
+                    xinbool[0] = !xinbool[0];
+                } else{
+                    viewHolder.xin.setImageResource(R.drawable.xin1);
+                    xinbool[0] = !xinbool[0];
+                }
+
+            }
+        });
+
+        viewHolder.wjx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (wjxbool[0]){
+                    viewHolder.wjx.setImageResource(R.drawable.wjx1);
+                    wjxbool[0] = !wjxbool[0];
+                } else{
+                    viewHolder.wjx.setImageResource(R.drawable.wjx2);
+                    wjxbool[0] = !wjxbool[0];
+                }
+
+            }
+        });
+
     }
 
     @Override
@@ -121,6 +174,12 @@ public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         private TextView tv_nr;
         private RelativeLayout ll;
         private JZVideoPlayerStandard videoplayer;
+        private RelativeLayout relative_sp;
+        private ImageView xin;
+        private ImageView wjx;
+        private ImageView fx;
+        private ImageView xx;
+
 
 
         public ViewHolder(View itemView) {
@@ -132,6 +191,12 @@ public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             tv_nr = itemView.findViewById(R.id.tv_nr);
             ll = itemView.findViewById(R.id.ll);
             videoplayer = itemView.findViewById(R.id.videoplayer);
+            relative_sp = itemView.findViewById(R.id.relative_sp);
+            xin = itemView.findViewById(R.id.xin);
+            wjx = itemView.findViewById(R.id.wjx);
+            fx = itemView.findViewById(R.id.fx);
+            xx = itemView.findViewById(R.id.xx);
+
 
         }
     }

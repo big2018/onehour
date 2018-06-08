@@ -23,6 +23,7 @@ import com.example.quarterhour.ui.jokes.fragment.JokeFragment;
 
 import com.example.quarterhour.ui.login.LoginActivity;
 import com.example.quarterhour.ui.recommend.fragment.RecommendFragment;
+import com.example.quarterhour.ui.video.fragment.VideoFragment;
 import com.example.quarterhour.util.BottomBar;
 import com.example.quarterhour.util.SpUtil;
 
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 .setIconHeight(30)
                 .addItem(RecommendFragment.class, "推荐", R.drawable.raw_1500083878, R.drawable.raw_1500085367)
                 .addItem(JokeFragment.class, "段子", R.drawable.raw_1500085327, R.drawable.raw_1500085899)
-                .addItem(RecommendFragment.class, "视频", R.drawable.raw_1500083686, R.drawable.raw_1500086067)
+                .addItem(VideoFragment.class, "视频", R.drawable.raw_1500083686, R.drawable.raw_1500086067)
                 .build();
     }
 
