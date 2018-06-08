@@ -22,8 +22,6 @@ import com.example.quarterhour.bean.WorkInfoBean;
 import com.example.quarterhour.ui.details.DetailsActivity;
 import com.example.quarterhour.util.AddImg;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.universalvideoview.UniversalMediaController;
-import com.universalvideoview.UniversalVideoView;
 
 import java.util.ArrayList;
 import java.util.List;

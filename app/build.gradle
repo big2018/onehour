@@ -20,6 +20,7 @@ android {
 }
 
 dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     testImplementation 'junit:junit:4.12'
@@ -41,7 +42,12 @@ dependencies {
     implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
     implementation 'com.youth.banner:banner:1.4.10'
     implementation 'com.facebook.fresco:fresco:0.12.0'
-    implementation 'com.linsea:universalvideoview:1.1.0@aar'
-//    implementation 'com.github.open-android:JieCaoVideoPlayer:0.1.0'
     implementation 'cn.jzvd:jiaozivideoplayer:6.2.9'
+    implementation files('libs/umeng-common-1.5.1.jar')
+    implementation files('libs/umeng-debug-1.0.0.jar')
+    implementation files('libs/umeng-share-core-6.9.1.jar')
+    implementation files('libs/umeng-share-QQ-simplify-6.9.1.jar')
+    implementation files('libs/umeng-share-wechat-simplify-6.9.1.jar')
+    implementation files('libs/umeng-shareboard-widget-6.9.1.jar')
+    implementation files('libs/umeng-sharetool-6.9.1.jar')
 }

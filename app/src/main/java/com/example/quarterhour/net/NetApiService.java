@@ -18,7 +18,7 @@ public interface NetApiService {
     @GET("quarter/getAd")
     Observable<AdBean> getAd();
 
-    @GET("quarter/getJokes?page=3")
+    @GET("quarter/getJokes?page=8")
     Observable<JokesBean> getJokes();
 
     @FormUrlEncoded
