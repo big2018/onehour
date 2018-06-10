@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Display;
@@ -21,15 +20,15 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.quarterhour.ui.issue.IssueActivity;
 import com.example.quarterhour.ui.jokes.fragment.JokeFragment;
-
 import com.example.quarterhour.ui.login.LoginActivity;
 import com.example.quarterhour.ui.recommend.fragment.RecommendFragment;
 import com.example.quarterhour.ui.video.fragment.VideoFragment;
 import com.example.quarterhour.util.BottomBar;
 import com.example.quarterhour.util.SpUtil;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FrameLayout frame_layout;
     private BottomBar bottom_bar;
@@ -42,6 +41,25 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mImageView;
     private LinearLayout liner;
     private LinearLayout right;
+    private ImageView mImgTou;
+    private ImageView mImgBianji;
+    private FrameLayout mFrameLayout;
+    private BottomBar mBottomBar;
+    private LinearLayout mRight;
+    /**
+     * Android Studio
+     */
+    private TextView mTvUsername;
+    /**
+     * 编辑个性签名
+     */
+    private TextView mTextView;
+    private ImageView mIg;
+    private ImageView mIg0;
+    private ImageView mIg1;
+    private ImageView mIg2;
+    private LinearLayout mLiner;
+    private DrawerLayout mDrawerLayout;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -55,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }else {
+        } else {
             View decorView = getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_FULLSCREEN;
             decorView.setSystemUiVisibility(option);
@@ -121,6 +139,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mImgTou = (ImageView) findViewById(R.id.img_tou);
+        mImgBianji = (ImageView) findViewById(R.id.img_bianji);
+        mImgBianji.setOnClickListener(this);
+        mFrameLayout = (FrameLayout) findViewById(R.id.frame_layout);
+        mBottomBar = (BottomBar) findViewById(R.id.bottom_bar);
+        mRight = (LinearLayout) findViewById(R.id.right);
+        mImageView.setOnClickListener(this);
+        mTvUsername = (TextView) findViewById(R.id.tv_username);
+        mTextView = (TextView) findViewById(R.id.textView);
+        mIg = (ImageView) findViewById(R.id.ig);
+        mIg0 = (ImageView) findViewById(R.id.ig0);
+        mIg1 = (ImageView) findViewById(R.id.ig1);
+        mIg2 = (ImageView) findViewById(R.id.ig2);
+        mLiner = (LinearLayout) findViewById(R.id.liner);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
     }
 
     private void initData() {
@@ -141,11 +174,25 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         String name = SpUtil.getString(this, "name", "");
         String iconurl = SpUtil.getString(this, "iconurl", "");
-        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(iconurl)){
+        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(iconurl)) {
             tv_username.setText(name);
             RequestOptions requestOptions = RequestOptions.circleCropTransform();
             Glide.with(this).load(iconurl).apply(requestOptions).into(mImageView);
             Glide.with(this).load(iconurl).apply(requestOptions).into(img_tou);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.img_bianji:
+
+                Intent intent = new Intent(MainActivity.this, IssueActivity.class);
+                startActivity(intent);
+
+                break;
         }
     }
 }
