@@ -58,7 +58,4 @@ public class NetApi {
         return netApiService.getNearVideos(token);
     }
 
-
-
-
 }

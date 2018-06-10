@@ -3,8 +3,9 @@ package com.example.quarterhour.ui.base;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
+import android.support.annotation.IntRange;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -64,4 +65,6 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
     public void dismissLoading() {
 
     }
+
+
 }
