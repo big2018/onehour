@@ -3,6 +3,7 @@ package com.example.quarterhour.net;
 import com.example.quarterhour.bean.AdBean;
 import com.example.quarterhour.bean.VideosBean;
 import com.example.quarterhour.bean.JokesBean;
+import com.example.quarterhour.bean.UserBean;
 import com.example.quarterhour.bean.UserInfoBean;
 import com.example.quarterhour.bean.UserVideosBean;
 import com.example.quarterhour.bean.WorkInfoBean;
@@ -18,7 +19,7 @@ public class NetApi {
         this.netApiService = netApiService;
     }
 
-    public static NetApi getNetApi(NetApiService netApiService){
+    public synchronized static NetApi getNetApi(NetApiService netApiService){
         if (netApi==null){
             netApi=new NetApi(netApiService);
         }
@@ -45,6 +46,10 @@ public class NetApi {
         return netApiService.getUserVideos(uid);
     }
 
+    public Observable<UserBean> login(String mobile,String password){
+        return netApiService.login(mobile, password);
+    }
+
     public Observable<VideosBean> getHotVideos(String token){
         return netApiService.getHotVideos(token);
     }
@@ -52,6 +57,8 @@ public class NetApi {
     public Observable<VideosBean> getNearVideos(String token){
         return netApiService.getNearVideos(token);
     }
+
+
 
 
 }

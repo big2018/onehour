@@ -3,6 +3,7 @@ package com.example.quarterhour.net;
 import com.example.quarterhour.bean.AdBean;
 import com.example.quarterhour.bean.VideosBean;
 import com.example.quarterhour.bean.JokesBean;
+import com.example.quarterhour.bean.UserBean;
 import com.example.quarterhour.bean.UserInfoBean;
 import com.example.quarterhour.bean.UserVideosBean;
 import com.example.quarterhour.bean.WorkInfoBean;
@@ -35,6 +36,11 @@ public interface NetApiService {
     @POST("quarter/getUserVideos")
     Observable<UserVideosBean> getUserVideos(@Field("uid") String uid);
 
+    //登录
+    @FormUrlEncoded
+    @POST("user/login")
+    Observable<UserBean> login(@Field("mobile") String mobile, @Field("password") String password);
+
     @FormUrlEncoded
     @POST("quarter/getHotVideos")
     Observable<VideosBean> getHotVideos(@Field("token") String token);
@@ -42,5 +48,6 @@ public interface NetApiService {
     @FormUrlEncoded
     @POST("quarter/getNearVideos")
     Observable<VideosBean> getNearVideos(@Field("token") String token);
+
 
 }

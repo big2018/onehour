@@ -3,6 +3,7 @@ package com.example.quarterhour.component;
 import com.example.quarterhour.module.HttpModule;
 import com.example.quarterhour.ui.details.DetailsActivity;
 import com.example.quarterhour.ui.jokes.fragment.JokeFragment;
+import com.example.quarterhour.ui.login.Login2Activity;
 import com.example.quarterhour.ui.recommend.fragment.GuanZhuFragment;
 import com.example.quarterhour.ui.recommend.fragment.HotFragment;
 import com.example.quarterhour.ui.recommend.fragment.RecommendFragment;
@@ -18,6 +19,7 @@ public interface HttpComponent {
     void inject(GuanZhuFragment guanZhuFragment);
     void inject(JokeFragment jokesFragment);
     void inject(DetailsActivity detailsActivity);
+    void inject(Login2Activity login2Activity);
     void inject(HotFrag hotFrag);
     void inject(NearbyFrag nearbyFrag);
 }

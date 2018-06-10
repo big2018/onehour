@@ -47,6 +47,14 @@ public class LoginActivity extends AppCompatActivity {
                 umShareAPI.getPlatformInfo(LoginActivity.this, SHARE_MEDIA.QQ, authListener);
             }
         });
+
+        tv_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, Login2Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
