@@ -73,9 +73,11 @@ public class Login2Activity extends BaseActivity<LoginPresenter> implements Logi
         String icon = data.getIcon();
         String mobile = data.getMobile();
         String token = data.getToken();
+        int uid = data.getUid();
         SpUtil.saveString(Login2Activity.this,"name",mobile);
         SpUtil.saveString(Login2Activity.this,"iconurl",icon);
         SpUtil.saveString(Login2Activity.this,"token",token);
+        SpUtil.saveString(Login2Activity.this,"uid",uid+"");
         this.finish();
     }
 

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Display;
@@ -16,13 +17,17 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.quarterhour.ui.issue.IssueActivity;
 import com.example.quarterhour.ui.jokes.fragment.JokeFragment;
+
 import com.example.quarterhour.ui.login.LoginActivity;
+import com.example.quarterhour.ui.mine.CollectActivity;
+import com.example.quarterhour.ui.mine.FollowUsersActivity;
 import com.example.quarterhour.ui.recommend.fragment.RecommendFragment;
 import com.example.quarterhour.ui.video.fragment.VideoFragment;
 import com.example.quarterhour.util.BottomBar;
@@ -38,9 +43,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private TextView tv_username;
     private DrawerLayout drawer_layout;
-    private ImageView mImageView;
+    private ImageView imageView_tou;
     private LinearLayout liner;
     private LinearLayout right;
+    private RelativeLayout rl_follow;
+    private RelativeLayout rl_shou;
+    private RelativeLayout rl_search;
     private ImageView mImgTou;
     private ImageView mImgBianji;
     private FrameLayout mFrameLayout;
@@ -73,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
-        } else {
+        }else {
             View decorView = getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_FULLSCREEN;
             decorView.setSystemUiVisibility(option);
@@ -99,9 +107,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         img_tou = (ImageView) findViewById(R.id.img_tou);
         tv_username = (TextView) findViewById(R.id.tv_username);
         drawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mImageView = (ImageView) findViewById(R.id.imageView);
+        imageView_tou = (ImageView) findViewById(R.id.imageView_tou);
         liner = (LinearLayout) findViewById(R.id.liner);
         right = (LinearLayout) findViewById(R.id.right);
+        rl_follow = (RelativeLayout) findViewById(R.id.rl_follow);
+        rl_shou = (RelativeLayout) findViewById(R.id.rl_shou);
+        rl_search = (RelativeLayout) findViewById(R.id.rl_search);
+        mImgBianji = (ImageView) findViewById(R.id.img_bianji);
 
         //侧拉的监听
         drawer_layout.setDrawerListener(new DrawerLayout.DrawerListener() {
@@ -131,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         //点击头像跳转登录的监听
-        mImageView.setOnClickListener(new View.OnClickListener() {
+        imageView_tou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -139,26 +151,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        mImgTou = (ImageView) findViewById(R.id.img_tou);
-        mImgBianji = (ImageView) findViewById(R.id.img_bianji);
+        //跳转到关注用户的列表
+        rl_follow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FollowUsersActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //跳转到收藏页面
+        rl_shou.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CollectActivity.class);
+                startActivity(intent);
+            }
+        });
+
         mImgBianji.setOnClickListener(this);
-        mFrameLayout = (FrameLayout) findViewById(R.id.frame_layout);
-        mBottomBar = (BottomBar) findViewById(R.id.bottom_bar);
-        mRight = (LinearLayout) findViewById(R.id.right);
-        mImageView.setOnClickListener(this);
-        mTvUsername = (TextView) findViewById(R.id.tv_username);
-        mTextView = (TextView) findViewById(R.id.textView);
-        mIg = (ImageView) findViewById(R.id.ig);
-        mIg0 = (ImageView) findViewById(R.id.ig0);
-        mIg1 = (ImageView) findViewById(R.id.ig1);
-        mIg2 = (ImageView) findViewById(R.id.ig2);
-        mLiner = (LinearLayout) findViewById(R.id.liner);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
     }
 
     private void initData() {
         RequestOptions requestOptions = RequestOptions.circleCropTransform();
-        Glide.with(this).load("http://p1.wmpic.me/article/2016/01/15/1452846717_StlCYymF.jpg").apply(requestOptions).into(mImageView);
+        Glide.with(this).load("http://p1.wmpic.me/article/2016/01/15/1452846717_StlCYymF.jpg").apply(requestOptions).into(imageView_tou);
         Glide.with(this).load("http://p1.wmpic.me/article/2016/01/15/1452846717_StlCYymF.jpg").apply(requestOptions).into(img_tou);
         //设置监听
         img_tou.setOnClickListener(new View.OnClickListener() {
@@ -174,10 +191,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
         String name = SpUtil.getString(this, "name", "");
         String iconurl = SpUtil.getString(this, "iconurl", "");
-        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(iconurl)) {
+        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(iconurl)){
             tv_username.setText(name);
             RequestOptions requestOptions = RequestOptions.circleCropTransform();
-            Glide.with(this).load(iconurl).apply(requestOptions).into(mImageView);
+            Glide.with(this).load(iconurl).apply(requestOptions).into(imageView_tou);
             Glide.with(this).load(iconurl).apply(requestOptions).into(img_tou);
         }
     }

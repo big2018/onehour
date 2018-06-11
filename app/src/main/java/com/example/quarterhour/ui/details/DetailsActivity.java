@@ -1,5 +1,6 @@
 package com.example.quarterhour.ui.details;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -44,8 +45,15 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> implements D
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        Intent intent = getIntent();
+        int uids = intent.getIntExtra("uid", 0);
+        if (uids==0){
+            uid=71+"";
+        }else {
+            uid=uids+"";
+        }
         initView();
-        mPresenter.getWorkInfo(uid, token);
+        mPresenter.getWorkInfo(this.uid, token);
     }
 
     private void initView() {
