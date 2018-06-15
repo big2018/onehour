@@ -50,16 +50,18 @@ public class FollowUsersActivity extends BaseActivity<FollowPresenter> implement
 
     @Override
     public void showFollowUsers(List<FollowUsersBean.DataBean> dataBeans) {
-        RvFollowAdapter rvFollowAdapter = new RvFollowAdapter(dataBeans, this);
-        rv_followuser.setAdapter(rvFollowAdapter);
+        if (dataBeans!= null) {
+            RvFollowAdapter rvFollowAdapter = new RvFollowAdapter(dataBeans, this);
+            rv_followuser.setAdapter(rvFollowAdapter);
 
-        rvFollowAdapter.setOnItemClickListener(new RvFollowAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Intent intent = new Intent(FollowUsersActivity.this, DetailsActivity.class);
-                startActivity(intent);
-            }
-        });
+            rvFollowAdapter.setOnItemClickListener(new RvFollowAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(int position) {
+                    Intent intent = new Intent(FollowUsersActivity.this, DetailsActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
 

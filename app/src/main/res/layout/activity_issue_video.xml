@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.issue.IssueVideoActivity">
+    tools:context=".ui.issue.IssueVideoActivity"
+    android:orientation="vertical">
 
-    <SurfaceView
-        android:id="@+id/sv_mediarecorder_surface"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="6">
 
-</android.support.constraint.ConstraintLayout>
+
+
+        <SurfaceView
+            android:id="@+id/surfaceview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <ImageView
+            android:id="@+id/img_fm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/drawerlayout_background"/>
+
+        <TextView
+            android:id="@+id/tv_issuecanle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返回"
+            android:textColor="#fff"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="录视频"
+            android:textColor="#fff"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xiangji"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_lvjing"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:background="#A2DEFA">
+
+        <ImageView
+            android:id="@+id/img_startandstop"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/yuanquan"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

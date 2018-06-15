@@ -48,9 +48,11 @@ public class CollectActivity extends BaseActivity<CollectPresenter> implements C
 
     @Override
     public void showCollect(CollectBean collectBean) {
-        List<CollectBean.DataBean> data = collectBean.getData();
-        RvCollectAdapter rvCollectAdapter = new RvCollectAdapter(data, this);
-        rv_collect.setAdapter(rvCollectAdapter);
+        if (collectBean.getCode().equals("0")) {
+            List<CollectBean.DataBean> data = collectBean.getData();
+            RvCollectAdapter rvCollectAdapter = new RvCollectAdapter(data, this);
+            rv_collect.setAdapter(rvCollectAdapter);
+        }
     }
 
     @Override

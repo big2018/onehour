@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.issue.SeeIssueVideoActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <VideoView
+            android:id="@+id/videoview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_seeiussreturn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返回"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预览"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/tv_bc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存到本地"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:gravity="center_vertical"
+        android:background="#C3E8FA">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="滤镜"
+            android:textColor="#29B6F6"
+            android:layout_marginLeft="20dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="#A2DEFA"
+        android:gravity="center">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_seeissue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="#29B6F6"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下一步"
+            android:textColor="#fff"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

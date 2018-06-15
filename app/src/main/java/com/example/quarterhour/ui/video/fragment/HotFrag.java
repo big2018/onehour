@@ -44,12 +44,14 @@ public class HotFrag extends BaseFragment<HotFragPresenter> implements HotFragCo
 
     @Override
     public void getHotVideosSuccess(VideosBean hotVideosBean) {
-        List<VideosBean.DataBean> data = hotVideosBean.getData();
-        List<Integer> heights = new ArrayList<>();
-        for ( int i = 0 ; i < data.size() ; i++ ){
-            heights.add((int)(100 + Math.random() * 300));
+        if (hotVideosBean.getCode().equals("0")) {
+            List<VideosBean.DataBean> data = hotVideosBean.getData();
+            List<Integer> heights = new ArrayList<>();
+            for (int i = 0; i < data.size(); i++) {
+                heights.add((int) (100 + Math.random() * 300));
+            }
+            PubuAdapter adapter = new PubuAdapter(getActivity(), data, heights);
+            hot_recycler.setAdapter(adapter);
         }
-        PubuAdapter adapter = new PubuAdapter(getActivity(),data,heights);
-        hot_recycler.setAdapter(adapter);
     }
 }

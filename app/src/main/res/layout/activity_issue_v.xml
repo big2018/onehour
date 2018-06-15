@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.issue.IssueVActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:background="@drawable/drawerlayout_background">
+
+        <TextView
+            android:id="@+id/tv_issuef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返回"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预览"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/fm"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/raw1499917357" />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="设置封面"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:background="#53C2F5"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#8DA1F0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="同步分享至——"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:layout_toLeftOf="@id/ll_share"
+            android:layout_marginRight="20dp"/>
+
+        <LinearLayout
+            android:id="@+id/ll_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/raw_1500022686"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="QQ空间"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:textColor="#fff"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/raw_1500022317"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="朋友圈"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:textColor="#fff"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="——"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/ll_share"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/img_suo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/suoopen"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="#A2DEFA">
+
+        <TextView
+            android:id="@+id/tv_issuejs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:text="点击输入视频简介.."/>
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:text="@"
+            android:textColor="#fff"
+            android:background="@drawable/round"
+            android:layout_alignLeft="@id/tv_issuejs"
+            android:layout_alignBottom="@id/tv_issuejs"
+            android:gravity="center"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+        <TextView
+            android:id="@+id/tv_issuenext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#fff"
+            android:text="发布"
+            android:background="#29B6F6"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

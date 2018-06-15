@@ -44,12 +44,14 @@ public class NearbyFrag extends BaseFragment<NearbyPresenter> implements NearbyC
 
     @Override
     public void getNearVideosSuccess(VideosBean nearVideosBean) {
-        List<VideosBean.DataBean> data = nearVideosBean.getData();
-        List<Integer> heights = new ArrayList<>();
-        for ( int i = 0 ; i < data.size() ; i++ ){
-            heights.add((int)(100 + Math.random() * 300));
+        if (nearVideosBean.getCode().equals("0")) {
+            List<VideosBean.DataBean> data = nearVideosBean.getData();
+            List<Integer> heights = new ArrayList<>();
+            for (int i = 0; i < data.size(); i++) {
+                heights.add((int) (100 + Math.random() * 300));
+            }
+            PubuAdapter adapter = new PubuAdapter(getActivity(), data, heights);
+            hot_recycler.setAdapter(adapter);
         }
-        PubuAdapter adapter = new PubuAdapter(getActivity(),data,heights);
-        hot_recycler.setAdapter(adapter);
     }
 }

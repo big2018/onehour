@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.quarterhour">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,7 +14,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:name=".app.MyApp"
@@ -31,13 +36,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.details.DetailsActivity" />
-        <activity android:name=".ui.login.LoginActivity"></activity>
-
-
+        <activity android:name=".ui.login.LoginActivity" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -54,11 +57,17 @@
         <activity android:name=".ui.login.Login2Activity" />
         <activity android:name=".ui.details.VideoDetailsActivity" />
         <activity android:name=".ui.mine.FollowUsersActivity" />
-        <activity android:name=".ui.mine.CollectActivity"
+        <activity
+            android:name=".ui.mine.CollectActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait" ></activity>
+            android:screenOrientation="portrait" />
         <activity android:name=".ui.issue.IssueActivity" />
-        <activity android:name=".ui.issue.IssueVideoActivity"></activity>
+        <activity android:name=".ui.issue.IssueVideoActivity" />
+        <activity android:name=".ui.issue.SeeIssueVideoActivity" />
+        <activity android:name=".ui.issue.SaveVideoActivity" />
+        <activity android:name=".ui.issue.IssueJActivity" />
+        <activity android:name=".ui.issue.IssueVActivity" />
+        <activity android:name=".ui.issue.IssueSuccessActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.issue.IssueSuccessActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#03A9F4">
+
+        <TextView
+            android:id="@+id/fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="返回"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/raw_1500021052"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/sss"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:id="@+id/sss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发表成功，快分享给好友捧场吧~！"
+        android:layout_above="@id/ll_issue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_issue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/raw_1500022714"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="QQ好友"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/raw_1500022686"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="QQ空间"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/raw_1500022317"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="朋友圈"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/raw_1500022698"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微信"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tiao"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:background="@drawable/round2"
+        android:text="前去看看！！！"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ll_issue"
+        android:layout_marginTop="30dp"/>
+
+</RelativeLayout>

@@ -46,12 +46,21 @@ public class VideoDetailsActivity extends AppCompatActivity implements View.OnCl
         Intent intent = getIntent();
         dataBean = (VideosBean.DataBean) intent.getSerializableExtra("videosbean");
 
-        mSimpleTx.setImageURI(dataBean.getUser().getIcon());
-        mPlayer.setUp(dataBean.getVideoUrl(),JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, dataBean.getWorkDesc()+"");
-        Glide.with(this).load(dataBean.getVideoUrl()).into(mPlayer.thumbImageView);
+        if (dataBean != null) {
+            mSimpleTx.setImageURI(dataBean.getUser().getIcon());
+            mPlayer.setUp(dataBean.getVideoUrl(), JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, dataBean.getWorkDesc() + "");
+            Glide.with(this).load(dataBean.getVideoUrl()).into(mPlayer.thumbImageView);
 
-        mTvJs.setText(dataBean.getWorkDesc());
-        mTvTime.setText(dataBean.getPlayNum()+"次播放    "+ dataBean.getCreateTime());
+            mTvJs.setText(dataBean.getWorkDesc());
+            mTvTime.setText(dataBean.getPlayNum() + "次播放    " + dataBean.getCreateTime());
+        }else {
+            mSimpleTx.setImageURI("https://www.zhaoapi.cn/images/quarter/1528938385226159.jpg");
+            mPlayer.setUp("https://www.zhaoapi.cn/images/quarter/1528938385226aa.mp4", JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, "亚索啊啊啊啊啊啊！！");
+            Glide.with(this).load("https://www.zhaoapi.cn/images/quarter/1528938385226159.jpg").into(mPlayer.thumbImageView);
+
+            mTvJs.setText("亚索啊啊啊啊啊啊！！");
+            mTvTime.setText("12155次播放    2018/05/16");
+        }
 
     }
 

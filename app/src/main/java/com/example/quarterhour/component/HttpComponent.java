@@ -2,6 +2,9 @@ package com.example.quarterhour.component;
 
 import com.example.quarterhour.module.HttpModule;
 import com.example.quarterhour.ui.details.DetailsActivity;
+import com.example.quarterhour.ui.issue.IssueJActivity;
+import com.example.quarterhour.ui.issue.IssueVActivity;
+import com.example.quarterhour.ui.issue.fragment.BdFragment;
 import com.example.quarterhour.ui.jokes.fragment.JokeFragment;
 import com.example.quarterhour.ui.login.Login2Activity;
 import com.example.quarterhour.ui.mine.CollectActivity;
@@ -26,4 +29,7 @@ public interface HttpComponent {
     void inject(NearbyFrag nearbyFrag);
     void inject(FollowUsersActivity followUsersActivity);
     void inject(CollectActivity collectActivity);
+    void inject(IssueVActivity issueVActivity);
+    void inject(BdFragment bdFragment);
+    void inject(IssueJActivity issueJActivity);
 }

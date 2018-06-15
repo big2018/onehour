@@ -1,6 +1,8 @@
 package com.example.quarterhour.net;
 
 import com.example.quarterhour.bean.AdBean;
+import com.example.quarterhour.bean.BaseBean;
+import com.example.quarterhour.bean.BdVideoBean;
 import com.example.quarterhour.bean.CollectBean;
 import com.example.quarterhour.bean.FollowUsersBean;
 import com.example.quarterhour.bean.VideosBean;
@@ -11,6 +13,9 @@ import com.example.quarterhour.bean.UserVideosBean;
 import com.example.quarterhour.bean.WorkInfoBean;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.http.Part;
 
 public class NetApi {
 
@@ -68,6 +73,18 @@ public class NetApi {
     //获取收藏列表
     public Observable<CollectBean> getCollect(String uid,String token){
         return netApiService.getCollect(uid, token);
+    }
+
+    public Observable<BaseBean> publishVideo(RequestBody uid, MultipartBody.Part videofile,MultipartBody.Part imgfile,RequestBody latitude,RequestBody longitude,RequestBody token,RequestBody source,RequestBody appVersion){
+        return netApiService.publishVideo(uid, videofile, imgfile, latitude, longitude, token,source,appVersion);
+    }
+
+    public Observable<BdVideoBean> getVideos(){
+        return netApiService.getVideos();
+    }
+
+    public Observable<BaseBean> publishJokes(String uid,String token,String content){
+        return netApiService.publishJoke(uid, token,content);
     }
 
 }

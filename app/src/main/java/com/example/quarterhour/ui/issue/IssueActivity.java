@@ -52,7 +52,8 @@ public class IssueActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.img_dz:
 
-
+                Intent intent1 = new Intent(IssueActivity.this,IssueJActivity.class);
+                startActivity(intent1);
 
                 break;
         }
