@@ -9,6 +9,7 @@ import com.example.quarterhour.ui.jokes.fragment.JokeFragment;
 import com.example.quarterhour.ui.login.Login2Activity;
 import com.example.quarterhour.ui.mine.CollectActivity;
 import com.example.quarterhour.ui.mine.FollowUsersActivity;
+import com.example.quarterhour.ui.mine.FriendsListActivity;
 import com.example.quarterhour.ui.recommend.fragment.GuanZhuFragment;
 import com.example.quarterhour.ui.recommend.fragment.HotFragment;
 import com.example.quarterhour.ui.recommend.fragment.RecommendFragment;
@@ -29,6 +30,7 @@ public interface HttpComponent {
     void inject(NearbyFrag nearbyFrag);
     void inject(FollowUsersActivity followUsersActivity);
     void inject(CollectActivity collectActivity);
+    void inject(FriendsListActivity friendsListActivity);
     void inject(IssueVActivity issueVActivity);
     void inject(BdFragment bdFragment);
     void inject(IssueJActivity issueJActivity);

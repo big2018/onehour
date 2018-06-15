@@ -34,8 +34,9 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
                 }).subscribe(new Consumer<VideosBean>() {
             @Override
             public void accept(VideosBean nearVideosBean) throws Exception {
-                if (mView != null)
+                if (mView != null){
                     mView.getNearVideosSuccess(nearVideosBean);
+                }
             }
         });
     }

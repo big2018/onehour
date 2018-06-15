@@ -3,6 +3,8 @@ package com.example.quarterhour.ui.mine;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.quarterhour.R;
 import com.example.quarterhour.bean.CollectBean;
@@ -21,6 +23,11 @@ public class CollectActivity extends BaseActivity<CollectPresenter> implements C
 
 
     private RecyclerView rv_collect;
+    /**
+     * 删除
+     */
+    private TextView tv_delete;
+    private RvCollectAdapter rvCollectAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +39,14 @@ public class CollectActivity extends BaseActivity<CollectPresenter> implements C
     private void initView() {
         rv_collect = (RecyclerView) findViewById(R.id.rv_collect);
         rv_collect.setLayoutManager(new LinearLayoutManager(this));
+        tv_delete = (TextView) findViewById(R.id.tv_delete);
+        //删除的监听
+        tv_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override

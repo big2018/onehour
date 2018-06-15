@@ -5,6 +5,7 @@ import com.example.quarterhour.bean.BaseBean;
 import com.example.quarterhour.bean.BdVideoBean;
 import com.example.quarterhour.bean.CollectBean;
 import com.example.quarterhour.bean.FollowUsersBean;
+import com.example.quarterhour.bean.SearchFriBean;
 import com.example.quarterhour.bean.VideosBean;
 import com.example.quarterhour.bean.JokesBean;
 import com.example.quarterhour.bean.UserBean;
@@ -73,6 +74,11 @@ public class NetApi {
     //获取收藏列表
     public Observable<CollectBean> getCollect(String uid,String token){
         return netApiService.getCollect(uid, token);
+    }
+
+    //搜索好友
+    public Observable<SearchFriBean> searchFri(String keywords){
+        return netApiService.searchFri(keywords);
     }
 
     public Observable<BaseBean> publishVideo(RequestBody uid, MultipartBody.Part videofile,MultipartBody.Part imgfile,RequestBody latitude,RequestBody longitude,RequestBody token,RequestBody source,RequestBody appVersion){

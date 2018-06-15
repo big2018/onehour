@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Display;
@@ -23,14 +22,17 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.quarterhour.ui.issue.IssueActivity;
+import com.example.quarterhour.ui.issue.SaveVideoActivity;
 import com.example.quarterhour.ui.jokes.fragment.JokeFragment;
-
 import com.example.quarterhour.ui.login.LoginActivity;
 import com.example.quarterhour.ui.mine.CollectActivity;
 import com.example.quarterhour.ui.mine.FollowUsersActivity;
+import com.example.quarterhour.ui.mine.SearchFriActivity;
+import com.example.quarterhour.ui.mine.SettingActivity;
 import com.example.quarterhour.ui.recommend.fragment.RecommendFragment;
 import com.example.quarterhour.ui.video.fragment.VideoFragment;
 import com.example.quarterhour.util.BottomBar;
+import com.example.quarterhour.util.SlideSwitch;
 import com.example.quarterhour.util.SpUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -68,6 +70,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView mIg2;
     private LinearLayout mLiner;
     private DrawerLayout mDrawerLayout;
+    private SlideSwitch switch_yj;
+    private ImageView img_yj;
+    private ImageView mImgSetting;
+    private ImageView img_mine;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -81,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }else {
+        } else {
             View decorView = getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_FULLSCREEN;
             decorView.setSystemUiVisibility(option);
@@ -114,7 +120,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rl_shou = (RelativeLayout) findViewById(R.id.rl_shou);
         rl_search = (RelativeLayout) findViewById(R.id.rl_search);
         mImgBianji = (ImageView) findViewById(R.id.img_bianji);
-
+        mImgBianji.setOnClickListener(this);
+        switch_yj = (SlideSwitch) findViewById(R.id.switch_yj);
+        img_yj = (ImageView) findViewById(R.id.img_yj);
+        mImgSetting = (ImageView) findViewById(R.id.img_setting);
+        img_mine = (ImageView) findViewById(R.id.img_mine);
         //侧拉的监听
         drawer_layout.setDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
@@ -169,7 +179,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        mImgBianji.setOnClickListener(this);
+        //跳转到搜索好友页面
+        rl_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SearchFriActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        //设置夜间模式的点击监听
+        switch_yj.setOnStateChangedListener(new SlideSwitch.OnStateChangedListener() {
+            @Override
+            public void onStateChanged(boolean state) {
+                if (state) {
+                    img_yj.setImageResource(R.drawable.yj2);
+                } else {
+                    img_yj.setImageResource(R.drawable.yl);
+                }
+            }
+        });
+
+        //设置电点击的监听
+        mImgSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //个人文件点击的监听
+        img_mine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SaveVideoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 
@@ -191,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
         String name = SpUtil.getString(this, "name", "");
         String iconurl = SpUtil.getString(this, "iconurl", "");
-        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(iconurl)){
+        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(iconurl)) {
             tv_username.setText(name);
             RequestOptions requestOptions = RequestOptions.circleCropTransform();
             Glide.with(this).load(iconurl).apply(requestOptions).into(imageView_tou);

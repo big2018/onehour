@@ -5,6 +5,7 @@ import com.example.quarterhour.bean.BaseBean;
 import com.example.quarterhour.bean.BdVideoBean;
 import com.example.quarterhour.bean.CollectBean;
 import com.example.quarterhour.bean.FollowUsersBean;
+import com.example.quarterhour.bean.SearchFriBean;
 import com.example.quarterhour.bean.VideosBean;
 import com.example.quarterhour.bean.JokesBean;
 import com.example.quarterhour.bean.UserBean;
@@ -66,6 +67,10 @@ public interface NetApiService {
     @FormUrlEncoded
     @POST("quarter/getFavorites")
     Observable<CollectBean> getCollect(@Field("uid") String uid, @Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("quarter/searchFriends")
+    Observable<SearchFriBean> searchFri(@Field("keywords") String keywords);
 
 
     @FormUrlEncoded

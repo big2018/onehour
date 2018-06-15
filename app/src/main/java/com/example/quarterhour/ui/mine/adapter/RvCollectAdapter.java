@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -68,7 +69,7 @@ public class RvCollectAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list==null?0:list.size();
     }
 
     class CollectViewHolder extends RecyclerView.ViewHolder{
@@ -77,9 +78,11 @@ public class RvCollectAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         TextView tv_time;
         TextView tv_title;
         JZVideoPlayerStandard jz_video;
+        CheckBox ck_collect;
 
         public CollectViewHolder(View view) {
             super(view);
+            this.ck_collect=(CheckBox) view.findViewById(R.id.ck_collect);
             this.img = (ImageView) view.findViewById(R.id.img);
             this.tv_name = (TextView) view.findViewById(R.id.tv_name);
             this.tv_time = (TextView) view.findViewById(R.id.tv_time);
